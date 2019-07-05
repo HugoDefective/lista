@@ -31,12 +31,22 @@ function updateScreen(){
 
     var list = "<ul>"
 
-    tasks.forEach((task=>{
-        list += "<li id-data="+task.id+">" + task.data.description + "</li>"    
-    })) 
+    tasks.forEach(task=>{
+        list += "<li id-data="+task.id+">" + task.data.description + "</li>" 
+        list += "<button onclick=deletetask(This) id-data="+ task.id+">Apagar</button>";
+    }); 
 
     list += "</ul>";
+    
 
     document.getElementById("list").innerHTML = list;
     document.getElementById("newTask").value = "";
+}
+
+function deleteTask(element){
+    console.log
+
+        task = task.filter(task=>task.id != element.getAttribute("id-data"));
+
+        updateScreen(); 
 }
