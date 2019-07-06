@@ -29,11 +29,11 @@ function createTask(){
 
 function updateScreen(){
 
-    var list = "<ul>"
+    var list = "<ul>";
 
     tasks.forEach(task=>{
         list += "<li id-data="+task.id+">" + task.data.description + "</li>" 
-        list += "<button onclick=deletetask(This) id-data="+ task.id+">Apagar</button>";
+        list += "<button onclick=deleteTask(this) id='btnapagar' id-data="+ task.id +">Apagar</button>";
     }); 
 
     list += "</ul>";
@@ -43,10 +43,10 @@ function updateScreen(){
     document.getElementById("newTask").value = "";
 }
 
-function deleteTask(element){
-    console.log
+function deleteTask(element) {
+    console.log(element);
 
-        task = task.filter(task=>task.id != element.getAttribute("id-data"));
+        tasks = tasks.filter(task=>task.id != element.getAttribute("id-data"));
 
         updateScreen(); 
 }
